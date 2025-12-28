@@ -1,36 +1,42 @@
-// Typing Effect
+// TYPING EFFECT
 const words = ["Hospital", "Home", "School", "Building"];
-let i = 0, j = 0;
-let current = "";
+let wordIndex = 0;
+let charIndex = 0;
 let deleting = false;
-const typing = document.querySelector(".typing");
+
+const typingElement = document.querySelector(".typing");
 
 function typeEffect() {
-  if (!deleting && j <= words[i].length) {
-    current = words[i].substring(0, j++);
-  } else if (deleting && j >= 0) {
-    current = words[i].substring(0, j--);
+  const currentWord = words[wordIndex];
+
+  if (!deleting) {
+    typingElement.textContent = currentWord.slice(0, charIndex++);
+    if (charIndex > currentWord.length) {
+      deleting = true;
+      setTimeout(typeEffect, 1200);
+      return;
+    }
+  } else {
+    typingElement.textContent = currentWord.slice(0, charIndex--);
+    if (charIndex < 0) {
+      deleting = false;
+      wordIndex = (wordIndex + 1) % words.length;
+    }
   }
 
-  typing.textContent = current;
-
-  if (j === words[i].length) deleting = true;
-  if (j === 0 && deleting) {
-    deleting = false;
-    i = (i + 1) % words.length;
-  }
-
-  setTimeout(typeEffect, 120);
+  setTimeout(typeEffect, deleting ? 80 : 120);
 }
+
 typeEffect();
 
-// Scroll Reveal
+// SCROLL REVEAL
 const sections = document.querySelectorAll(".hidden");
 
 window.addEventListener("scroll", () => {
-  sections.forEach(sec => {
-    if (sec.getBoundingClientRect().top < window.innerHeight - 100) {
-      sec.classList.add("show");
+  sections.forEach(section => {
+    const top = section.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      section.classList.add("show");
     }
   });
 });
