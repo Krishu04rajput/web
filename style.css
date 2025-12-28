@@ -6,23 +6,19 @@
 }
 
 body {
-  background: linear-gradient(270deg, #0f3d2e, #1b5e20, #2e7d32);
-  background-size: 600% 600%;
-  animation: bgMove 12s ease infinite;
   color: white;
+  background: black;
 }
 
-@keyframes bgMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
+/* NAVBAR */
 nav {
+  position: fixed;
+  width: 100%;
+  z-index: 10;
   display: flex;
   justify-content: space-between;
-  padding: 20px 50px;
-  background: rgba(0,0,0,0.3);
+  padding: 15px 50px;
+  background: rgba(0,0,0,0.5);
 }
 
 .logo span {
@@ -37,61 +33,73 @@ nav ul {
 nav a {
   color: white;
   text-decoration: none;
-  position: relative;
 }
 
-nav a::after {
-  content: '';
-  width: 0;
-  height: 2px;
-  background: #7CFC00;
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  transition: 0.3s;
-}
-
-nav a:hover::after {
-  width: 100%;
-}
-
+/* HERO */
 .hero {
-  height: 90vh;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+.hero-content {
+  position: relative;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding: 20px;
 }
 
-.hero span {
+.hero h2 span {
   color: #7CFC00;
 }
 
+.quote {
+  margin-top: 15px;
+  font-size: 18px;
+  font-style: italic;
+  opacity: 0.9;
+  max-width: 600px;
+}
+
 .glow-btn {
-  margin-top: 20px;
+  margin-top: 25px;
   padding: 12px 30px;
   border: none;
   background: #7CFC00;
   color: black;
-  font-size: 16px;
   cursor: pointer;
-  box-shadow: 0 0 20px #7CFC00;
-  transition: 0.3s;
+  box-shadow: 0 0 25px #7CFC00;
 }
 
-.glow-btn:hover {
-  box-shadow: 0 0 40px #7CFC00;
-}
-
+/* SECTIONS */
 .section {
-  padding: 80px;
+  padding: 100px 60px;
   text-align: center;
+  background: #0f3d2e;
 }
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
   margin-top: 30px;
 }
@@ -100,7 +108,7 @@ nav a:hover::after {
   background: rgba(255,255,255,0.1);
   padding: 30px;
   border-radius: 12px;
-  transition: 0.4s;
+  transition: 0.3s;
 }
 
 .card:hover {
@@ -110,7 +118,7 @@ nav a:hover::after {
 
 .hidden {
   opacity: 0;
-  transform: translateY(50px);
+  transform: translateY(40px);
   transition: 1s;
 }
 
@@ -120,7 +128,7 @@ nav a:hover::after {
 }
 
 footer {
-  padding: 20px;
+  background: black;
   text-align: center;
-  background: rgba(0,0,0,0.4);
+  padding: 20px;
 }
