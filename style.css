@@ -2,23 +2,25 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
 }
 
 body {
-  color: white;
   background: black;
+  color: white;
 }
 
 /* NAVBAR */
 nav {
   position: fixed;
+  top: 0;
   width: 100%;
   z-index: 10;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 15px 50px;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.6);
 }
 
 .logo span {
@@ -33,6 +35,7 @@ nav ul {
 nav a {
   color: white;
   text-decoration: none;
+  font-size: 14px;
 }
 
 /* HERO */
@@ -44,21 +47,21 @@ nav a {
 
 .bg-video {
   position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  z-index: -2;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
   z-index: -1;
 }
 
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-}
-
 .hero-content {
-  position: relative;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -68,26 +71,37 @@ nav a {
   padding: 20px;
 }
 
+.hero h2 {
+  font-size: 32px;
+}
+
 .hero h2 span {
   color: #7CFC00;
 }
 
 .quote {
   margin-top: 15px;
-  font-size: 18px;
+  font-size: 16px;
   font-style: italic;
-  opacity: 0.9;
   max-width: 600px;
+  opacity: 0.9;
 }
 
+/* BUTTON */
 .glow-btn {
   margin-top: 25px;
   padding: 12px 30px;
   border: none;
   background: #7CFC00;
   color: black;
+  font-size: 15px;
   cursor: pointer;
   box-shadow: 0 0 25px #7CFC00;
+  transition: 0.3s;
+}
+
+.glow-btn:hover {
+  box-shadow: 0 0 40px #7CFC00;
 }
 
 /* SECTIONS */
@@ -116,6 +130,7 @@ nav a {
   box-shadow: 0 0 20px #7CFC00;
 }
 
+/* SCROLL ANIMATION */
 .hidden {
   opacity: 0;
   transform: translateY(40px);
@@ -127,8 +142,10 @@ nav a {
   transform: translateY(0);
 }
 
+/* FOOTER */
 footer {
   background: black;
-  text-align: center;
   padding: 20px;
+  text-align: center;
+  font-size: 14px;
 }
