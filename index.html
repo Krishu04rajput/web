@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>M/S Krishna Kunj Green Energy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- NAVBAR -->
 <nav>
   <h1 class="logo">Krishna<span>Kunj</span></h1>
   <ul>
@@ -17,13 +19,18 @@
   </ul>
 </nav>
 
-<!-- HERO WITH VIDEO BG -->
+<!-- HERO SECTION -->
 <section id="home" class="hero">
 
-  <video autoplay muted loop class="bg-video">
+  <!-- VIDEO BACKGROUND -->
+  <video class="bg-video" autoplay muted loop playsinline preload="auto">
     <source src="solar.mp4" type="video/mp4">
   </video>
 
+  <!-- DARK OVERLAY -->
+  <div class="overlay"></div>
+
+  <!-- CONTENT -->
   <div class="hero-content">
     <h2>Solar Power for <span class="typing"></span></h2>
 
@@ -36,15 +43,17 @@
 
 </section>
 
+<!-- ABOUT -->
 <section id="about" class="section hidden">
   <h2>About Us</h2>
   <p>
     M/S Krishna Kunj Green Energy is a trusted solar vendor delivering
-    high-quality solar solutions for hospitals, homes, schools, and
-    commercial buildings.
+    sustainable, cost-effective solar solutions for homes, hospitals,
+    schools, and commercial buildings.
   </p>
 </section>
 
+<!-- SERVICES -->
 <section id="services" class="section hidden">
   <h2>Our Services</h2>
   <div class="cards">
@@ -55,6 +64,7 @@
   </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact" class="section hidden">
   <h2>Contact Us</h2>
   <p>📞 Phone: +91 XXXXX XXXXX</p>
@@ -62,7 +72,7 @@
 </section>
 
 <footer>
-  © 2025 M/S Krishna Kunj Green Energy
+  © 2025 M/S Krishna Kunj Green Energy. All Rights Reserved.
 </footer>
 
 <script src="script.js"></script>
