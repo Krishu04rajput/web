@@ -1,42 +1,29 @@
-// TYPING EFFECT
 const words = ["Hospital", "Home", "School", "Building"];
 let wordIndex = 0;
 let charIndex = 0;
-let deleting = false;
-
-const typingElement = document.querySelector(".typing");
+let isDeleting = false;
+const speed = 120;
+const element = document.getElementById("type-text");
 
 function typeEffect() {
   const currentWord = words[wordIndex];
 
-  if (!deleting) {
-    typingElement.textContent = currentWord.slice(0, charIndex++);
+  if (!isDeleting) {
+    element.textContent = currentWord.substring(0, charIndex++);
     if (charIndex > currentWord.length) {
-      deleting = true;
-      setTimeout(typeEffect, 1200);
+      isDeleting = true;
+      setTimeout(typeEffect, 1000);
       return;
     }
   } else {
-    typingElement.textContent = currentWord.slice(0, charIndex--);
+    element.textContent = currentWord.substring(0, charIndex--);
     if (charIndex < 0) {
-      deleting = false;
+      isDeleting = false;
       wordIndex = (wordIndex + 1) % words.length;
     }
   }
 
-  setTimeout(typeEffect, deleting ? 80 : 120);
+  setTimeout(typeEffect, speed);
 }
 
 typeEffect();
-
-// SCROLL REVEAL
-const sections = document.querySelectorAll(".hidden");
-
-window.addEventListener("scroll", () => {
-  sections.forEach(section => {
-    const top = section.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) {
-      section.classList.add("show");
-    }
-  });
-});
