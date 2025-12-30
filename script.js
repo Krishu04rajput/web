@@ -25,3 +25,11 @@ function type() {
 }
 
 type();
+
+function openQuote() {
+  document.getElementById("quoteModal").style.display = "block";
+}
+
+function closeQuote() {
+  document.getElementById("quoteModal").style.display = "none";
+}
