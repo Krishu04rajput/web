@@ -1,29 +1,18 @@
 const words = ["Hospital", "Home", "School", "Building"];
-let wordIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-const speed = 120;
-const element = document.getElementById("type-text");
+let i = 0, j = 0, del = false;
+const el = document.getElementById("type-text");
 
-function typeEffect() {
-  const currentWord = words[wordIndex];
-
-  if (!isDeleting) {
-    element.textContent = currentWord.substring(0, charIndex++);
-    if (charIndex > currentWord.length) {
-      isDeleting = true;
-      setTimeout(typeEffect, 1000);
-      return;
-    }
+function type() {
+  if (!del) {
+    el.textContent = words[i].slice(0, ++j);
+    if (j === words[i].length) del = true;
   } else {
-    element.textContent = currentWord.substring(0, charIndex--);
-    if (charIndex < 0) {
-      isDeleting = false;
-      wordIndex = (wordIndex + 1) % words.length;
+    el.textContent = words[i].slice(0, --j);
+    if (j === 0) {
+      del = false;
+      i = (i + 1) % words.length;
     }
   }
-
-  setTimeout(typeEffect, speed);
+  setTimeout(type, del ? 80 : 120);
 }
-
-typeEffect();
+type();
