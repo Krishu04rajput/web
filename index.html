@@ -34,7 +34,7 @@
   <div class="hero-content">
     <h1>Solar Power for <span id="type"></span></h1>
     <p class="quote">“Harness the sun today to secure a greener tomorrow.”</p>
-    <button class="cta">Get Solar Quote</button>
+    <button class="cta" onclick="openQuote()">Get Solar Quote</button>
   </div>
 </section>
 
@@ -42,9 +42,9 @@
 <section id="about" class="section">
   <h2>About Us</h2>
   <p>
-    M/S Krishna Kunj Green Energy is a trusted solar vendor delivering
-    clean, affordable, and sustainable solar solutions for homes,
-    hospitals, schools, and commercial buildings.
+    M/S Krishna Kunj Green Energy is a professional solar vendor delivering
+    affordable and sustainable solar solutions for homes, hospitals,
+    schools, and commercial buildings.
   </p>
 </section>
 
@@ -65,6 +65,18 @@
   <p>Email: info@krishnakunjenergy.com</p>
   <p>Phone: +91 XXXXXXXXXX</p>
 </section>
+
+<!-- GOOGLE FORM POPUP -->
+<div id="quoteModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeQuote()">×</span>
+
+    <iframe
+      src="https://docs.google.com/forms/d/e/1FAIpQLSeRMTDuC9yugZXC9N8A/viewform?embedded=true"
+      frameborder="0">
+    </iframe>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
