@@ -1,18 +1,27 @@
 const words = ["Hospital", "Home", "School", "Building"];
-let i = 0, j = 0, del = false;
-const el = document.getElementById("type-text");
+let i = 0;
+let j = 0;
+let current = "";
+let isDeleting = false;
+const speed = 120;
+const el = document.getElementById("type");
 
 function type() {
-  if (!del) {
-    el.textContent = words[i].slice(0, ++j);
-    if (j === words[i].length) del = true;
-  } else {
-    el.textContent = words[i].slice(0, --j);
-    if (j === 0) {
-      del = false;
-      i = (i + 1) % words.length;
-    }
+  if (!isDeleting && j <= words[i].length) {
+    current = words[i].substring(0, j++);
+  } else if (isDeleting && j >= 0) {
+    current = words[i].substring(0, j--);
   }
-  setTimeout(type, del ? 80 : 120);
+
+  el.textContent = current;
+
+  if (j === words[i].length) isDeleting = true;
+  if (isDeleting && j === 0) {
+    isDeleting = false;
+    i = (i + 1) % words.length;
+  }
+
+  setTimeout(type, isDeleting ? speed / 2 : speed);
 }
+
 type();
