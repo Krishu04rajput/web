@@ -6,12 +6,10 @@
 }
 
 body {
-  height: 100vh;
-  overflow: hidden;
   color: white;
 }
 
-/* VIDEO */
+/* Background Video */
 .bg-video {
   position: fixed;
   top: 0;
@@ -22,7 +20,7 @@ body {
   z-index: -2;
 }
 
-/* OVERLAY */
+/* Overlay */
 .overlay {
   position: fixed;
   inset: 0;
@@ -30,11 +28,11 @@ body {
   z-index: -1;
 }
 
-/* HEADER */
+/* Header */
 header {
   position: fixed;
-  top: 0;
   width: 100%;
+  top: 0;
   padding: 15px 40px;
   display: flex;
   justify-content: space-between;
@@ -52,16 +50,111 @@ header {
 
 .logo img {
   width: 40px;
-  height: auto;
 }
 
-nav a {
+.logo span {
+  color: #9cff9c;
+}
+
+.nav-links a {
+  color: #9cff9c;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: #00ff00;
+}
+
+/* Hero */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 42px;
+}
+
+.hero span {
+  color: #00ff00;
+}
+
+.hero p {
+  margin: 15px 0;
+  opacity: 0.8;
+}
+
+.hero button {
+  padding: 12px 30px;
+  background: #00ff00;
+  border: none;
+  color: black;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 0 15px #00ff00;
+}
+
+.hero button:hover {
+  transform: scale(1.05);
+}
+
+/* Sections */
+.section {
+  padding: 100px 40px;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.section h2 {
+  color: #00ff00;
+  margin-bottom: 15px;
+}
+
+/* Mobile Menu */
+.menu-icon {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #00ff00;
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  background: black;
+  border: 1px solid #00ff00;
+  border-radius: 10px;
+  padding: 10px;
+  flex-direction: column;
+  z-index: 100;
+}
+
+.mobile-menu a {
   color: #9cff9c;
   text-decoration: none;
-  margin-left: 20px;
-  font-weight: 500;
+  padding: 10px 20px;
 }
 
+.mobile-menu a:hover {
+  color: #00ff00;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .menu-icon {
+    display: block;
+  }
+}
 nav a:hover {
   color: #00ff00;
 }
