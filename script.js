@@ -1,27 +1,34 @@
-// Typing animation
 const words = ["Hospital", "Home", "School", "Building"];
-let i = 0, j = 0;
-let isDeleting = false;
-const el = document.getElementById("type");
+let index = 0;
+let char = 0;
+let deleting = false;
+const speed = 120;
+const target = document.getElementById("type-text");
 
-function type() {
-  let word = words[i];
-  el.textContent = isDeleting
-    ? word.substring(0, j--)
-    : word.substring(0, j++);
+function typeEffect() {
+  const word = words[index];
 
-  if (!isDeleting && j === word.length) isDeleting = true;
-  if (isDeleting && j === 0) {
-    isDeleting = false;
-    i = (i + 1) % words.length;
+  if (!deleting) {
+    target.textContent = word.substring(0, char++);
+    if (char > word.length) {
+      deleting = true;
+      setTimeout(() => {}, 1000);
+    }
+  } else {
+    target.textContent = word.substring(0, char--);
+    if (char === 0) {
+      deleting = false;
+      index = (index + 1) % words.length;
+    }
   }
-  setTimeout(type, isDeleting ? 70 : 120);
+  setTimeout(typeEffect, speed);
 }
-type();
 
-// Modal logic (SAFE)
-document.addEventListener("DOMContentLoaded", () => {
-  const modal = document.getElementById("quoteModal");
-  document.getElementById("quoteBtn").onclick = () => modal.style.display = "block";
-  document.getElementById("closeModal").onclick = () => modal.style.display = "none";
-});
+typeEffect();
+
+function openForm() {
+  window.open(
+    "https://docs.google.com/forms/d/e/1FAIpQLSeRMUlk6xw5G_GcLbMhgeYbDkofXEBjdF_ZqPAer8_8WfTwGA/viewform",
+    "_blank"
+  );
+}
