@@ -1,21 +1,22 @@
+/* Typing Animation */
 const words = ["Hospital", "Home", "School", "Building"];
 let index = 0;
 let char = 0;
 let deleting = false;
 const speed = 120;
-const target = document.getElementById("type-text");
+const text = document.getElementById("type-text");
 
 function typeEffect() {
   const word = words[index];
 
   if (!deleting) {
-    target.textContent = word.substring(0, char++);
+    text.textContent = word.substring(0, char++);
     if (char > word.length) {
       deleting = true;
-      setTimeout(() => {}, 1000);
+      setTimeout(() => {}, 800);
     }
   } else {
-    target.textContent = word.substring(0, char--);
+    text.textContent = word.substring(0, char--);
     if (char === 0) {
       deleting = false;
       index = (index + 1) % words.length;
@@ -26,6 +27,13 @@ function typeEffect() {
 
 typeEffect();
 
+/* Mobile Menu */
+function toggleMenu() {
+  const menu = document.getElementById("mobileMenu");
+  menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+}
+
+/* Google Form */
 function openForm() {
   window.open(
     "https://docs.google.com/forms/d/e/1FAIpQLSeRMUlk6xw5G_GcLbMhgeYbDkofXEBjdF_ZqPAer8_8WfTwGA/viewform",
