@@ -1,65 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>M/S Krishna Kunj Green Energy</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header class="navbar">
-  <div class="brand">
-    <img src="logo.png" class="logo">
-    <span>Krishna<span class="green">Kunj</span></span>
-  </div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<section id="home" class="hero">
-  <video autoplay muted loop playsinline class="bg-video">
-    <source src="solar.mp4" type="video/mp4">
+  <!-- Background Video -->
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="bg-video.mp4" type="video/mp4">
   </video>
+
+  <!-- Overlay -->
   <div class="overlay"></div>
 
-  <div class="hero-content">
-    <h1>Solar Power for <span id="type"></span></h1>
-    <p class="quote">“Harness the sun today to secure a greener tomorrow.”</p>
-    <button class="cta" id="quoteBtn">Get Solar Quote</button>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="KGE Logo">
+      <span>KrishnaKunj</span>
+    </div>
+
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home" onclick="toggleMenu()">Home</a>
+    <a href="#about" onclick="toggleMenu()">About</a>
+    <a href="#services" onclick="toggleMenu()">Services</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
   </div>
-</section>
 
-<section id="about" class="section">
-  <h2>About Us</h2>
-  <p>
-    M/S Krishna Kunj Green Energy provides trusted solar solutions
-    for homes, hospitals, schools, and commercial buildings.
-  </p>
-</section>
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <h1>Solar Power for <span id="type-text">Building</span></h1>
+    <p>“Harness the sun today to secure a greener tomorrow.”</p>
+    <button onclick="openForm()">Get Solar Quote</button>
+  </section>
 
-<section id="services" class="section">
-  <h2>Our Services</h2>
-  <div class="cards">
-    <div class="card">🏠 Residential Solar</div>
-    <div class="card">🏥 Hospital Solar</div>
-    <div class="card">🏫 School Solar</div>
-    <div class="card">🏢 Commercial Solar</div>
-  </div>
-</section>
+  <!-- About -->
+  <section class="section" id="about">
+    <h2>About Us</h2>
+    <p>
+      M/S Krishna Kunj Green Energy is a trusted solar vendor providing
+      high-quality rooftop and commercial solar solutions across India.
+    </p>
+  </section>
 
-<section id="contact" class="section">
-  <h2>Contact</h2>
-  <p>Email: info@krishnakunjenergy.com</p>
-  <p>Phone: +91 XXXXXXXXXX</p>
-</section>
+  <!-- Services -->
+  <section class="section" id="services">
+    <h2>Our Services</h2>
+    <ul>
+      <li>Residential Solar Systems</li>
+      <li>Commercial & Industrial Solar</li>
+      <li>Government Subsidy Support</li>
+      <li>Maintenance & AMC</li>
+    </ul>
+  </section>
 
-<!-- GOOGLE FORM MODAL -->
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: info@krishnakunjenergy.com</p>
+    <p>Phone: +91 XXXXX XXXXX</p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
 <div id="quoteModal" class="modal">
   <div class="modal-content">
     <span class="close" id="closeModal">×</span>
